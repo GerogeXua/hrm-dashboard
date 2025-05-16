@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年度经营计划</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* 自定义滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 主容器 -->
+    <div class="container mx-auto px-4 py-6">
+        <!-- 标题区域 -->
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-900">年度经营计划</h1>
+                <p class="text-sm text-gray-500 mt-1">2024年度目标完成情况追踪</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <select class="px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option>2024年度</option>
+                    <option>2023年度</option>
+                    <option>2022年度</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 指标卡片网格 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <!-- 销售数量卡片 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-gray-600 text-sm font-medium">销售数量</h3>
+                        <p class="text-2xl font-bold text-gray-900 mt-1">25,678</p>
+                    </div>
+                    <span class="px-2.5 py-1 text-xs font-medium bg-blue-50 text-blue-700 rounded-full">
+                        目标: 100,000
+                    </span>
+                </div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="flex items-center text-sm text-green-600">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        同比 +8.5%
+                    </div>
+                    <div class="flex items-center text-sm text-red-600">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0v-8m0 8l-8-8-4 4-6-6"/>
+                        </svg>
+                        环比 -2.3%
+                    </div>
+                </div>
+                <div class="relative pt-1">
+                    <div class="flex mb-2 items-center justify-between">
+                        <div class="text-xs font-semibold text-blue-700">
+                            完成率: 25.68%
+                        </div>
+                    </div>
+                    <div class="overflow-hidden h-2 text-xs flex rounded bg-blue-50">
+                        <div class="w-1/4 shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 销售收入卡片 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-gray-600 text-sm font-medium">销售收入</h3>
+                        <p class="text-2xl font-bold text-gray-900 mt-1">￥3,245.8万</p>
+                    </div>
+                    <span class="px-2.5 py-1 text-xs font-medium bg-green-50 text-green-700 rounded-full">
+                        目标: ￥8,000万
+                    </span>
+                </div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="flex items-center text-sm text-green-600">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        同比 +12.3%
+                    </div>
+                    <div class="flex items-center text-sm text-green-600">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        环比 +5.7%
+                    </div>
+                </div>
+                <div class="relative pt-1">
+                    <div class="flex mb-2 items-center justify-between">
+                        <div class="text-xs font-semibold text-green-700">
+                            完成率: 40.57%
+                        </div>
+                    </div>
+                    <div class="overflow-hidden h-2 text-xs flex rounded bg-green-50">
+                        <div style="width: 40.57%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 利润指标卡片 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-gray-600 text-sm font-medium">利润指标</h3>
+                        <p class="text-2xl font-bold text-gray-900 mt-1">￥567.3万</p>
+                    </div>
+                    <span class="px-2.5 py-1 text-xs font-medium bg-purple-50 text-purple-700 rounded-full">
+                        目标: ￥1,200万
+                    </span>
+                </div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="flex items-center text-sm text-green-600">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        同比 +15.8%
+                    </div>
+                    <div class="flex items-center text-sm text-green-600">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        环比 +3.2%
+                    </div>
+                </div>
+                <div class="relative pt-1">
+                    <div class="flex mb-2 items-center justify-between">
+                        <div class="text-xs font-semibold text-purple-700">
+                            完成率: 47.28%
+                        </div>
+                    </div>
+                    <div class="overflow-hidden h-2 text-xs flex rounded bg-purple-50">
+                        <div style="width: 47.28%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图表区域 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg font-medium text-gray-900">月度趋势分析</h3>
+                <div class="flex gap-2">
+                    <button class="px-3 py-1 text-sm text-gray-600 bg-gray-100 rounded-full hover:bg-gray-200">
+                        销售数量
+                    </button>
+                    <button class="px-3 py-1 text-sm text-gray-600 bg-gray-100 rounded-full hover:bg-gray-200">
+                        销售收入
+                    </button>
+                    <button class="px-3 py-1 text-sm text-gray-600 bg-gray-100 rounded-full hover:bg-gray-200">
+                        利润指标
+                    </button>
+                </div>
+            </div>
+            <canvas id="trendChart" height="300"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // 初始化趋势图表
+        const ctx = document.getElementById('trendChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                datasets: [{
+                    label: '销售数量',
+                    data: [2100, 2300, 2500, 2700, 2900, 3100, 3300, 3500, 3700, 3900, 4100, 4300],
+                    borderColor: 'rgb(59, 130, 246)',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
